@@ -137,8 +137,7 @@ def catalystsVersion(scalaVersion: String): String =
 def scalatestVersion(scalaVersion: String): String =
   if (priorTo2_13(scalaVersion)) "3.0.5" else "3.0.6-SNAP5"
 
-def scalaCheckVersion(scalaVersion: String): String =
-  if (priorTo2_13(scalaVersion)) "1.13.5" else "1.14.0"
+def scalaCheckVersion(scalaVersion: String): String = "1.14.0"
 
 def disciplineVersion(scalaVersion: String): String =
   if (priorTo2_13(scalaVersion)) "0.9.0" else "0.10.0"
