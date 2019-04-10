@@ -3,13 +3,20 @@ package tests
 
 import catalysts.Platform
 
-import cats.instances.{AllInstances, AllInstancesBinCompat0, AllInstancesBinCompat1, AllInstancesBinCompat2}
+import cats.instances.{
+  AllInstances,
+  AllInstancesBinCompat0,
+  AllInstancesBinCompat1,
+  AllInstancesBinCompat2,
+  AllInstancesBinCompat3
+}
 import cats.syntax.{
   AllSyntax,
   AllSyntaxBinCompat0,
   AllSyntaxBinCompat1,
   AllSyntaxBinCompat2,
   AllSyntaxBinCompat3,
+  AllSyntaxBinCompat4,
   EqOps
 }
 import org.scalactic.anyvals.{PosInt, PosZDouble, PosZInt}
@@ -47,11 +54,13 @@ trait CatsSuite
     with AllInstancesBinCompat0
     with AllInstancesBinCompat1
     with AllInstancesBinCompat2
+    with AllInstancesBinCompat3
     with AllSyntax
     with AllSyntaxBinCompat0
     with AllSyntaxBinCompat1
     with AllSyntaxBinCompat2
     with AllSyntaxBinCompat3
+    with AllSyntaxBinCompat4
     with StrictCatsEquality { self: FunSuiteLike =>
 
   implicit override val generatorDrivenConfig: PropertyCheckConfiguration =

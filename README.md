@@ -1,3 +1,9 @@
+
+### ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) Community Announcements ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
+
+* **Jan 31 2019** Cats 1.6.0 is released.
+* **Jan 31 2019** [Cats ecosystem community survey 2018 results](https://typelevel.org/blog/2019/01/30/cats-ecosystem-community-survey-results.html) is published
+
 ## Cats
 ![cats image](http://plastic-idolatry.com/erik/cats2.png)
 
@@ -7,6 +13,7 @@
 [![codecov.io](http://codecov.io/github/typelevel/cats/coverage.svg?branch=master)](http://codecov.io/github/typelevel/cats?branch=master)
 [![Latest version](https://index.scala-lang.org/typelevel/cats/cats-core/latest.svg?color=orange&v=1)](https://index.scala-lang.org/typelevel/cats/cats-core)
 [![Scala.js](http://scala-js.org/assets/badges/scalajs-0.6.14.svg)](http://scala-js.org)
+
 
 ### Overview
 
@@ -40,7 +47,7 @@ addSbtPlugin("org.lyranthe.sbt" % "partial-unification" % "1.1.2")
 And then create the Cats dependency, by adding the following to your `build.sbt`:
 
 ```scala
-libraryDependencies += "org.typelevel" %% "cats-core" % "1.5.0-RC1"
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.6.0"
 ```
 
 This will pull in the cats-core module. If you require some other
@@ -79,6 +86,7 @@ By sharing the same set of type classes, instances and data types provided by Ca
 #### General purpose libraries to support pure functional programming
 
  * [cats-par](https://github.com/ChristopherDavenport/cats-par): Abstract type member Parallel instances
+ * [cats-retry](https://github.com/cb372/cats-retry): composable retry logic for Cats and Cats Effect
  * [droste](https://github.com/andyscott/droste): recursion schemes for Cats
  * [Dsl.scala](https://github.com/ThoughtWorksInc/Dsl.scala): The `!`-notation for creating Cats monadic expressions
  * [eff](https://github.com/atnos-org/eff): functional effects and effect handlers (alternative to monad transformers)
@@ -113,10 +121,10 @@ By sharing the same set of type classes, instances and data types provided by Ca
  * [hammock](https://github.com/pepegar/hammock): Purely functional HTTP client
  * [henkan](https://github.com/kailuowang/henkan): Type safe conversion between case class instances with similar fields
  * [http4s](https://github.com/http4s/http4s): A minimal, idiomatic Scala interface for HTTP
- * [monadic-html](https://github.com/OlivierBlanvillain/monadic-html): Tiny DOM binding library for Scala.js
- * [Monix](https://github.com/monix/monix): high-performance library for composing asynchronous and event-based programs
  * [linebacker](https://github.com/ChristopherDavenport/linebacker): functional thread pool management
  * [log4cats](https://github.com/ChristopherDavenport/log4cats): functional logging
+ * [monadic-html](https://github.com/OlivierBlanvillain/monadic-html): Tiny DOM binding library for Scala.js
+ * [Monix](https://github.com/monix/monix): high-performance library for composing asynchronous and event-based programs
  * [pureconfig](https://github.com/pureconfig/pureconfig): A boilerplate-free library for loading configuration files
  * [rainier](https://github.com/stripe/rainier): Bayesian inference in Scala
  * [scala-forex](https://github.com/snowplow/scala-forex): exchange rate lookups
@@ -125,6 +133,7 @@ By sharing the same set of type classes, instances and data types provided by Ca
  * [scala-weather](https://github.com/snowplow/scala-weather): weather lookups
  * [scanamo](https://github.com/guardian/scanamo): simpler DynamoDB access for Scala
  * [seals](https://github.com/durban/seals): tools for schema evolution and language-integrated schemata
+ * [sup](https://github.com/kubukoz/sup): Composable, purely functional healthchecks in Scala
  * [tsec](https://github.com/jmcardon/tsec/): Typesafe, functional, general purpose cryptography and security library
   
 Your project talks cats too? [Submit a PR to add it here!](https://github.com/typelevel/cats/edit/master/README.md)
@@ -216,6 +225,7 @@ Here's a (non-exhaustive) list of companies that use Cats in production. Don't s
 - [Apple Inc. (FEAR team)](https://news.ycombinator.com/item?id=16969118)
 - [AutoScout24](https://www.autoscout24.com) 
 - [Avast](https://avast.com)
+- [BabylonHealth](https://www.babylonhealth.com/)
 - [Banno Group inside of Jack Henry & Associates](https://banno.com/)
 - [Basefarm](https://basefarm.com/)
 - [buildo](https://buildo.io)
@@ -242,7 +252,10 @@ Here's a (non-exhaustive) list of companies that use Cats in production. Don't s
 - [Nezasa](https://www.nezasa.com)
 - [NCR Edinburgh](https://ncredinburgh.com/)
 - [Ocado Technology](https://ocadotechnology.com)
+- [Raiffeisenbank Russia](https://www.raiffeisen.ru/)
+- [Rakuten](https://www.rakuten.com)
 - [REA Group](https://www.realestate.com.au/)
+- [Reality Games](https://wearerealitygames.com)
 - [Rudder](https://rudder.io)
 - [Scalac](https://scalac.io)
 - [Scala Center](https://scala.epfl.ch)
@@ -296,4 +309,4 @@ http://opensource.org/licenses/mit-license.php and also in the
 [COPYING](COPYING) file. The design is informed by many other
 projects, in particular [Scalaz](https://github.com/scalaz/scalaz).
 
-Copyright the maintainers, 2015-2018.
+Copyright the maintainers, 2015-2019.
