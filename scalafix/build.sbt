@@ -3,7 +3,7 @@ val V = _root_.scalafix.sbt.BuildInfo
 inThisBuild(
   List(
     scalaVersion in ThisBuild := V.scala212,
-    addCompilerPlugin(scalafixSemanticdb),
+    // addCompilerPlugin(scalafixSemanticdb),
     scalacOptions += "-Yrangepos"
   ))
 

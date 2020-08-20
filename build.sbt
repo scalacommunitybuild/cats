@@ -30,13 +30,14 @@ val disciplineMunitVersion = "0.2.3"
 val kindProjectorVersion = "0.11.0"
 
 crossScalaVersionsFromTravis in Global := {
-  val manifest = (baseDirectory in ThisBuild).value / ".travis.yml"
-  import collection.JavaConverters._
-  Using.fileInputStream(manifest) { fis =>
-    new org.yaml.snakeyaml.Yaml().loadAs(fis, classOf[java.util.Map[_, _]]).asScala.toList.collect {
-      case (k: String, v: String) if k.contains("scala_version_") => v
-    }
-  }
+  // val manifest = (baseDirectory in ThisBuild).value / ".travis.yml"
+  // import collection.JavaConverters._
+  // Using.fileInputStream(manifest) { fis =>
+  //   new org.yaml.snakeyaml.Yaml().loadAs(fis, classOf[java.util.Map[_, _]]).asScala.toList.collect {
+  //     case (k: String, v: String) if k.contains("scala_version_") => v
+  //   }
+  // }
+  Seq("2.12.13-bin-3889610-SNAPSHOT")
 }
 
 def scalaVersionSpecificFolders(srcName: String, srcBaseDir: java.io.File, scalaVersion: String) = {
@@ -51,6 +52,7 @@ def scalaVersionSpecificFolders(srcName: String, srcBaseDir: java.io.File, scala
 }
 
 lazy val commonScalaVersionSettings = Seq(
+  resolvers += "prs" at "https://scala-ci.typesafe.com/artifactory/scala-pr-validation-snapshots/",
   crossScalaVersions := (crossScalaVersionsFromTravis in Global).value,
   scalaVersion := crossScalaVersions.value.find(_.contains("2.12")).get
 )
@@ -81,16 +83,16 @@ lazy val catsSettings = Seq(
     if (isDotty.value) Nil
     else
       Seq(
-        compilerPlugin(("org.typelevel" %% "kind-projector" % kindProjectorVersion).cross(CrossVersion.full))
+        compilerPlugin(("org.typelevel" % "kind-projector_2.12.12" % kindProjectorVersion))
       )
   ) ++ macroDependencies(scalaVersion.value)
 ) ++ commonSettings ++ publishSettings ++ scoverageSettings ++ simulacrumSettings
 
 lazy val simulacrumSettings = Seq(
-  libraryDependencies ++= (if (isDotty.value) Nil else Seq(compilerPlugin(scalafixSemanticdb))),
-  scalacOptions ++= (
-    if (isDotty.value) Nil else Seq(s"-P:semanticdb:targetroot:${baseDirectory.value}/target/.semanticdb", "-Yrangepos")
-  ),
+  // libraryDependencies ++= (if (isDotty.value) Nil else Seq(compilerPlugin(scalafixSemanticdb))),
+  // scalacOptions ++= (
+  //   if (isDotty.value) Nil else Seq(s"-P:semanticdb:targetroot:${baseDirectory.value}/target/.semanticdb", "-Yrangepos")
+  // ),
   libraryDependencies +=
     ("org.typelevel" %% "simulacrum-scalafix-annotations" % "0.5.0" % Provided).withDottyCompat(scalaVersion.value),
   pomPostProcess := { (node: xml.Node) =>
@@ -651,7 +653,7 @@ lazy val binCompatTest = project
     // see https://github.com/typelevel/cats/pull/3026#discussion_r321984342
     useCoursier := false,
     commonScalaVersionSettings,
-    addCompilerPlugin(("org.typelevel" %% "kind-projector" % kindProjectorVersion).cross(CrossVersion.full)),
+    addCompilerPlugin(("org.typelevel" % "kind-projector_2.12.12" % kindProjectorVersion)),
     libraryDependencies += mimaPrevious("cats-core", scalaVersion.value, version.value).last % Provided,
     scalacOptions ++= (if (priorTo2_13(scalaVersion.value)) Seq("-Ypartial-unification") else Nil)
   )
